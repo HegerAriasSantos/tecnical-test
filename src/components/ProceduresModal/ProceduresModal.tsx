@@ -6,6 +6,7 @@ import {
 	Button,
 	styled,
 	InputBase,
+	ButtonProps,
 } from "@mui/material";
 import { COLORS } from "../../constants";
 import Add from "@mui/icons-material/Add";
@@ -37,6 +38,11 @@ const InputCustomized = styled(InputBase)(() => ({
 		padding: "12px 0 12px 16px",
 		fontSize: 16,
 	},
+}));
+const CancelButton = styled(Button)<ButtonProps>(() => ({
+	backgroundColor: COLORS.white,
+	border: `2px solid ${COLORS.grey}`,
+	color: COLORS.purple,
 }));
 
 type Props = {
@@ -120,15 +126,17 @@ export default function ProceduresModal({
 			keepMounted
 			open={open}
 			onClose={() => handleClose()}
-			aria-labelledby='modal-modal-title'
-			aria-describedby='modal-modal-description'>
+			sx={{
+				overflow: "scroll",
+			}}>
 			<Box sx={style}>
 				<Box
 					display={"flex"}
 					gap={"20px"}
 					margin={"0 0 0 41px"}
 					height={"45px"}
-					alignItems={"center"}>
+					alignItems={"center"}
+					flexWrap={"wrap"}>
 					<Typography id='modal-modal-title' variant='h1' fontSize={"32px"}>
 						Procedimientos
 					</Typography>
@@ -149,7 +157,6 @@ export default function ProceduresModal({
 									color={COLORS.green}
 									fontSize={"16px"}
 									fontWeight={700}
-									lineHeight={"24px"}
 									paddingTop={0}
 									paddingBottom={0}>
 									Añadir procedimiento
@@ -171,13 +178,15 @@ export default function ProceduresModal({
 							component='form'
 							noValidate
 							autoComplete='off'
-							width={"941px"}
+							maxWidth={"941px"}
+							width={"100%"}
 							height={"100%"}
 							display={"flex"}
 							gap={"24px"}
 							borderRadius={"10px"}
 							bgcolor={COLORS.white}
-							alignItems={"center"}>
+							alignItems={"center"}
+							flexWrap={"wrap"}>
 							<Box
 								paddingTop={"50px"}
 								display={"flex"}
@@ -284,13 +293,17 @@ export default function ProceduresModal({
 				</Box>
 				<Box display={"flex"} justifyContent={"flex-end"}>
 					<Box display={"flex"} justifyContent={"center"} gap={"16.89px"}>
-						<Button
+						<CancelButton
 							onClick={() => handleClose()}
-							sx={{ border: `2px ${COLORS.grey}` }}>
+							sx={{
+								border: `2px solid ${COLORS.grey}`,
+								padding: "8px 39px",
+								borderRadius: "5px",
+							}}>
 							<Typography variant='caption' fontSize={"14px"} fontWeight={700}>
 								Cancelar
 							</Typography>
-						</Button>
+						</CancelButton>
 
 						<Button
 							variant='contained'

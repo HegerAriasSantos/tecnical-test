@@ -8,7 +8,7 @@ type Props = {
 };
 type ColumnProps = {
 	label: string;
-	value: string | number;
+	value?: string | number;
 };
 export default function Procedure({ item, index }: Props) {
 	const columns: ColumnProps[] = [
@@ -35,7 +35,8 @@ export default function Procedure({ item, index }: Props) {
 			display={"flex"}
 			gap={"78px"}
 			borderRadius={"10px"}
-			bgcolor={COLORS.white}>
+			bgcolor={COLORS.white}
+			flexWrap={"wrap"}>
 			{columns.map((column, index) => (
 				<Box
 					key={column.label + index}

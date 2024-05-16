@@ -8,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ALL_PROCEDURES } from "./services/queries/get-all-procedures";
 import { ProcedureDto } from "./types";
 import CreatedComponent from "./components/CreatedComponent/CreatedComponent";
+import { COLORS } from "./constants";
 
 function App() {
 	const [isOpenModal, setIsOpenModal] = useState(false);
@@ -30,8 +31,8 @@ function App() {
 					display: "flex",
 					justifyContent: "center",
 					alignItems: "center",
-					height: "100vh",
-					backgroundColor: "#f5f5f5",
+					minHeight: "100vh",
+					backgroundColor: COLORS.white03,
 				}}>
 				<CircularProgress />
 			</Box>

@@ -16,7 +16,8 @@ export default function Items({ items, handleOpenModal }: Props) {
 				marginBottom={"35px"}
 				display={"flex"}
 				flexDirection={"column"}
-				gap={"12px"}>
+				gap={"12px"}
+				flexWrap={"wrap"}>
 				{items.map((item, index) => (
 					<Procedure
 						key={item.id}
